@@ -45,8 +45,8 @@ class App extends Component {
             render={({location}) => (
                 <NavigationDrawer
                     drawerTitle="react-md with CRA"
-                    // toolbarTitle="Welcome to react-md"
-                    toolbarTitleMenu={null}
+                    toolbarTitle="Welcome to react-md"
+                    // toolbarTitleMenu={null}
                     navItems={navItems.map(props => <NavLink {...props} key={props.to}/>)}
                 >
                   <Switch key={location.key}>
