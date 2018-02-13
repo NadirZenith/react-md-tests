@@ -5,13 +5,17 @@ import {
   TextField,
   Snackbar
 } from 'react-md';
+import {Redirect} from 'react-router-dom'
+
+import fakeAuth from '../../Utils/FakeAuth'
 
 export default class Login extends PureComponent {
 // export default class Login extends Component {
-  state = { toasts: [] };
+  state = { toasts: [], redirectToReferrer: false };
 
   handleSubmit = (e) => {
     e.preventDefault();
+
     if (!this.state.toasts.length) {
       const toasts = this.state.toasts.slice();
       toasts.push({
@@ -20,6 +24,12 @@ export default class Login extends PureComponent {
       });
       this.setState({ toasts });
     }
+
+    fakeAuth.authenticate(() => {
+      this.setState(() => ({
+        redirectToReferrer: true
+      }))
+    })
   };
 
   handleDismiss = () => {
@@ -27,11 +37,18 @@ export default class Login extends PureComponent {
     this.setState({ toasts });
   };
 
-
   render() {
-    const { toasts } = this.state;
+    const { from } = this.props.location.state || { from: { pathname: '/' }}
+
+    const { toasts, redirectToReferrer } = this.state
+
+
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />
+    }
     return (
         <div className="md-grid234">
+          <p>You must log in to view the page at {from.pathname}</p>
           <form className="md-grid text-fields__application" onSubmit={this.handleSubmit}>
             <TextField
                 id="email"

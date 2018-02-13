@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import NavigationDrawer from 'react-md/lib/NavigationDrawers'
 import NavLink from '../Utils/NavLink'
+import PrivateRoute from '../Utils/PrivateRoute'
 
 import Home from './Home/Home'
 import Page1 from './Page1/Page1'
@@ -24,7 +25,7 @@ const navItems = [{
   to: '/page-2',
   icon: 'donut_large',
 }, {
-  label: 'Page 3',
+  label: 'Page 3 (protected)',
   to: '/page-3',
   icon: 'flight_land',
 }, {
@@ -52,9 +53,10 @@ class App extends Component {
                     <Route exact path="/" location={location} component={Home}/>
                     <Route path="/page-1" location={location} component={Page1}/>
                     <Route path="/page-2" location={location} component={Page2}/>
-                    <Route path="/page-3" location={location} component={Page3}/>
+                    <PrivateRoute path="/page-3" location={location} component={Page3}/>
                     <Route path="/form" location={location} component={Form}/>
                     <Route path="/login" location={location} component={Login}/>
+
                   </Switch>
                 </NavigationDrawer>
             )}
