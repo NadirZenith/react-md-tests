@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import NavigationDrawer from 'react-md/lib/NavigationDrawers';
-import NavLink from './NavLink'
+import NavLink from '../Utils/NavLink'
 
-import Home from './Home'
-import Page1 from './Page1'
-import Page2 from './Page2'
-import Page3 from './Page3'
+import Home from './Home/Home'
+import Page1 from './Page1/Page1'
+import Page2 from './Page2/Page2'
+import Page3 from './Page3/Page3'
 
 const navItems = [{
   exact: true,
