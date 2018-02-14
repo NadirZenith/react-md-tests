@@ -10,6 +10,7 @@ import Page2 from './Page2/Page2'
 import Page3 from './Page3/Page3'
 import Form from './Form'
 import Login from './Login'
+import Register from './Register'
 
 const navItems = [{
   exact: true,
@@ -36,6 +37,10 @@ const navItems = [{
   label: 'Login',
   to: '/login',
   icon: 'input',
+}, {
+  label: 'Register',
+  to: '/register',
+  icon: 'input',
 }]
 
 class App extends Component {
@@ -56,6 +61,7 @@ class App extends Component {
                     <PrivateRoute path="/page-3" location={location} component={Page3}/>
                     <Route path="/form" location={location} component={Form}/>
                     <Route path="/login" location={location} component={Login}/>
+                    <Route path="/register" location={location} component={Register}/>
 
                   </Switch>
                 </NavigationDrawer>
