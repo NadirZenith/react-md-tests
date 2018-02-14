@@ -9,6 +9,7 @@ import Page1 from './Page1/Page1'
 import Page2 from './Page2/Page2'
 import Page3 from './Page3/Page3'
 import Form from './Form'
+import Splash from './Splash'
 import Login from './Login'
 import Register from './Register'
 
@@ -32,6 +33,10 @@ const navItems = [{
 }, {
   label: 'Form',
   to: '/form',
+  icon: 'input',
+}, {
+  label: 'Splash',
+  to: '/splash',
   icon: 'input',
 }, {
   label: 'Login',
@@ -60,6 +65,7 @@ class App extends Component {
                     <Route path="/page-2" location={location} component={Page2}/>
                     <PrivateRoute path="/page-3" location={location} component={Page3}/>
                     <Route path="/form" location={location} component={Form}/>
+                    <Route path="/splash" location={location} component={Splash}/>
                     <Route path="/login" location={location} component={Login}/>
                     <Route path="/register" location={location} component={Register}/>
 
